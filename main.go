@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/eknkc/amber"
-	// "github.com/googollee/go-socket.io"
+	"github.com/googollee/go-socket.io"
 	"github.com/gorilla/mux"
 )
 
@@ -35,10 +35,23 @@ func main() {
 		http.ServeFile(w, r, "static/"+params["type"]+"/"+params["file"])
 	})
 
+	io, err := socketio.NewServer(nil)
+	if err != nil {
+		panic(err)
+	}
+
+	io.On("connection", func(s socketio.Socket) {
+		fmt.Println("Connected: " + s.Id())
+
+		s.Join("main")
+	})
+
 	http.Handle("/", r)
+	http.Handle("/io/", io)
 	http.ListenAndServe(":8080", nil)
 }
 
 func handleNotFound(w http.ResponseWriter, r *http.Request) {
-
+	tpl, _ := amber.CompileFile("amber/404.amber", amber.DefaultOptions)
+	tpl.Execute(w, nil)
 }
