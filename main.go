@@ -47,7 +47,7 @@ func main() {
 	})
 
 	http.Handle("/", r)
-	http.Handle("/io/", io)
+	http.Handle("/socket.io/", io)
 	http.ListenAndServe(":8080", nil)
 }
 

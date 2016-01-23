@@ -1,6 +1,81 @@
-$dark: "#1D2822"; // dark green
-$bright: "#F0E28A"; // bright yellow
+@import url(https://fonts.googleapis.com/css?family=Raleway|Lato|Cabin);
+$dark: #1D2822; // dark green
+$primary: #F0E28A; // bright yellow
+$accent: #BB6E28; // orange
 
-$accent: "#BB6E28"; // orange
-// light green
-// muted red
+$dark-alt: #628C74; // light green
+$accent-alt: #592819; // muted red
+
+// constants
+$sidebar-width: 200px;
+
+* {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	color: $primary;
+	font-family: 'Raleway', sans-serif;
+}
+
+#chat {
+	float: right;
+	background-color: $dark;
+	height: 100%;
+	width: calc(100% - 200px); // uses $sidebar-width
+}
+
+#compose {
+	position: absolute;
+	bottom: 0px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#compose-text {
+	// reset
+	border: none;
+	overflow: auto;
+	outline: none;
+	resize: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+
+	width: 100%;
+}
+
+#sidebar {
+	width: $sidebar-width;
+	display: block;
+	height: 100%;
+	float: left;
+	background-color: $dark-alt;
+}
+
+#sidebar-header {
+	h1 {
+		width: 100%;
+		text-align: center;
+		font-size: 24px;
+
+		padding: 15px 0px 15px 0px;
+		background-color: rgb(51,33,23);
+		color: rgb(192, 164, 116);
+	}
+}

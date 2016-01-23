@@ -10,6 +10,19 @@ html
 		script[type="text/javascript"][src="static/js/main.js"]
 
 	body
-		div#chat
-
 		div#sidebar
+			div#sidebar-header
+				h1 nighthawks
+			div#sidebar-users
+				h1 online users
+				ul
+					li
+						a[href="#"] user
+					li
+						a[href="#"] another one
+		div#chat
+			div#messages
+				div.chat-message
+					p Example chat message
+			div#compose
+				textarea#compose-text
