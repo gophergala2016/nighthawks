@@ -1,0 +1,10 @@
+!!! 5
+html
+	head
+		title nighthawks
+		link[rel="stylesheet"][type="text/css"][href="static/css/lib.reset.css"]
+
+	body
+		div#chat
+
+		div#sidebar
